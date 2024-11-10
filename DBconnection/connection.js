@@ -1,5 +1,7 @@
 require('dotenv').config();
 const mongoose = require('mongoose')
+
+console.log('MongoDB URI:', process.env.DATABASE);
 const connectionString = process.env.DATABASE;
 if (!connectionString) {
     console.error('mongobd connection string is missing');
