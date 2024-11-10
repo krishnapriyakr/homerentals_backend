@@ -1,6 +1,8 @@
 require('dotenv').config();
 const mongoose = require('mongoose')
 
+console.log('Environment Variables:', process.env);
+
 console.log('MongoDB URI:', process.env.DATABASE);
 const connectionString = process.env.DATABASE;
 if (!connectionString) {
@@ -8,7 +10,7 @@ if (!connectionString) {
     process.exit(1);
     
 }
-mongoose.connect(connectionString).then(() => {
+mongoose.connect(connectionString,{ useNewUrlParser: true, useUnifiedTopology: true }).then(() => {
     console.log("mongoDB connected successfully to hrServer");
 }).catch((err) => {
     console.log(`mongoDB connection failed!!Error:${err}`);
